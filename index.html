@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>레지던스 신청</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🏠 레지던스 신청서</h1>
+    <p class="description">
+      입사 예정자를 위한 레지던스 신청 페이지입니다.<br>
+      아래 내용을 정확히 작성해주세요.
+    </p>
+    <form id="residenceForm">
+      <label>입사(예정)일 <input type="date" name="join_date" required /></label>
+      <label>이름 <input type="text" name="name" required /></label>
+      <label>사번 <input type="text" name="emp_id" required /></label>
+      <label>생년월일 <input type="date" name="birth" required /></label>
+      <label>혼인 여부 
+        <select name="married" required>
+          <option value="미혼">미혼</option>
+          <option value="기혼">기혼</option>
+        </select>
+      </label>
+      <label>현재 거주지 <input type="text" name="address" required /></label>
+      <label>본인 연락처 <input type="tel" name="phone" required /></label>
+      <label>이메일 주소 <input type="email" name="email" required /></label>
+      <label>신청 사유 <textarea name="reason" rows="5" required></textarea></label>
+      <button type="submit">신청하기</button>
+      <p id="responseMsg"></p>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
