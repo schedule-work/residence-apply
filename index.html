@@ -7,18 +7,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-container">
-    <div class="form-section">
-      <h1>🏠 고려대학교 구로병원 간호부 레지던스 신청서</h1>
-      <form id="residenceForm">
+  <!-- 상단 고정 메뉴 -->
+  <nav class="menu-bar">
+    <button onclick="showTab('formTab')">📄 신청하기</button>
+    <button onclick="showTab('videoTab')">🎮 소개 영상</button>
+    <button onclick="showTab('guideTab')">📘 입주 목지안내</button>
+    <button onclick="showTab('qnaTab')">❓ Q&A</button>
+    <button onclick="showTab('contactTab')">📞 문의</button>
+  </nav>
 
+  <!-- 컨텐츠 전체 -->
+  <div class="tab-content">
+
+    <!-- 신청서 -->
+    <div id="formTab">
+      <h1>🏠 레지던스 신청서</h1>
+      <form id="residenceForm">
         <label>입사(예정)일</label>
         <input type="date" name="join_date" required />
 
         <label>이름</label>
         <input type="text" name="name" required />
 
-        <label>사번</label>
+        <label>사번 선택</label>
         <select name="emp_id" id="empOption" required>
           <option value="">선택해주세요</option>
           <option value="신규 입사자 (사번 미부여)">신규 입사자 (사번 미부여)</option>
@@ -33,24 +44,24 @@
         <label>생년월일</label>
         <input type="date" name="birth" required />
 
-        <label>혼인 여부</label>
+        <label>호인 유무</label>
         <select name="married" required>
-          <option value="미혼">미혼</option>
-          <option value="기혼">기혼</option>
+          <option value="미호">미호</option>
+          <option value="기호">기호</option>
         </select>
 
         <label>현재 거주지</label>
-        <div class="guide-text">※ [○○시 ○○구 ○○동(or 도로명)] 형식으로 응답하시기 바랍니다.</div>
+        <div class="guide-text">※ [○○시 ○○구 ○○동(or 도로명)] 형식으로 응답하십시오.</div>
         <input type="text" name="address" required />
 
         <label>본인 연락처</label>
-        <div class="guide-text">※ 010-0000-0000 형식으로 응답하시기 바랍니다.</div>
+        <div class="guide-text">※ 010-0000-0000 형식으로 응답하십시오.</div>
         <input type="tel" name="phone" required />
 
         <label>이메일 주소</label>
         <div class="guide-text">
-          ※ 레지던스 관련 안내사항을 발송할 예정이오니, 본인이 사용하는 이메일 주소로 응답해주세요.<br>
-          (예: kumc@gmail.com)<br>
+          ※ 레지던스 관련 안내사항을 발송할 예정이오는이, 본인이 현재 사용하는 이메일 주소로 응답해주세요.<br>
+          (e.g., kumc@gmail.com)<br>
           <strong>** 주의 : kumc.or.kr 메일 외의 다른 이메일 주소로 입력 **</strong>
         </div>
         <input type="email" name="email" required />
@@ -63,8 +74,9 @@
       </form>
     </div>
 
-    <div class="video-section">
-      <h3>🎬 레지던스 소개 영상</h3>
+    <!-- 영상 -->
+    <div id="videoTab" style="display:none">
+      <h2>🎮 레지던스 소개 영상</h2>
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/RetC3a-KUsQ"
                 title="레지던스 소개 영상"
@@ -72,9 +84,39 @@
                 allowfullscreen></iframe>
       </div>
     </div>
+
+    <!-- 입주안내 -->
+    <div id="guideTab" style="display:none">
+      <h2>📘 입주 목지안내</h2>
+      <div class="card-container">
+        <img src="card1.jpg" alt="안내1" class="card-image" />
+        <!-- 다음 이미지 추가도 가능 -->
+      </div>
+    </div>
+
+    <!-- Q&A -->
+    <div id="qnaTab" style="display:none">
+      <h2>❓ 자주 묻는 질문</h2>
+      <ul class="faq-list">
+        <li><strong>Q. 신청 후 결과는 어떻게 안내되나요?</strong><br>A. 모습 3일 이내 개별 연락드릴 계획입니다.</li>
+        <li><strong>Q. 입주 가능 시간은?</strong><br>A. 최대 6개월 까지 가능합니다.</li>
+        <li><strong>Q. 가족과 함께 입주 가능한가요?</strong><br>A. 다음 레지던스는 1인심 기준으로 가족 동방은 가능하지 않습니다.</li>
+      </ul>
+    </div>
+
+    <!-- 문의 -->
+    <div id="contactTab" style="display:none">
+      <h2>📞 문의</h2>
+      <p>레지던스 신청과 관련된 문의는 아래로 연락 주세요.</p>
+      <ul>
+        <li><strong>이메일:</strong> residence@kumc.or.kr</li>
+        <li><strong>전화번호:</strong> 02-1234-5678</li>
+        <li><strong>운영시간:</strong> 평일 9:00 ~ 17:00</li>
+      </ul>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
-
