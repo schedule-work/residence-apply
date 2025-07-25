@@ -7,66 +7,74 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="main-layout">
-    <div class="form-container">
+  <div class="page-container">
+    <div class="form-section">
       <h1>🏠 레지던스 신청서</h1>
       <form id="residenceForm">
-        <label>입사(예정)일 <input type="date" name="join_date" required /></label>
 
-        <label>이름 <input type="text" name="name" required /></label>
+        <label>입사(예정)일</label>
+        <input type="date" name="join_date" required />
 
-        <label>사번
-          <select name="emp_id" id="empOption" required>
-            <option value="">선택해주세요</option>
-            <option value="신규 입사자 (사번 없음)">신규 입사자 (사번 없음)</option>
-            <option value="직접 입력">직접 입력</option>
-          </select>
-          <input type="text" id="empIdInput" name="emp_id_input" style="display:none" placeholder="사번 입력" />
-        </label>
+        <label>이름</label>
+        <input type="text" name="name" required />
 
-        <label>생년월일 <input type="date" name="birth" required /></label>
+        <label>사번 선택</label>
+        <select name="emp_id" id="empOption" required>
+          <option value="">선택해주세요</option>
+          <option value="신규 입사자 (사번 미부여)">신규 입사자 (사번 미부여)</option>
+          <option value="직접 입력">직접 입력</option>
+        </select>
 
-        <label>혼인 여부 
-          <select name="married" required>
-            <option value="미혼">미혼</option>
-            <option value="기혼">기혼</option>
-          </select>
-        </label>
+        <div id="empIdContainer" style="display:none;">
+          <label>사번 입력</label>
+          <input type="text" id="empIdInput" name="emp_id_input" />
+        </div>
 
-        <label>현재 거주지
-          <input type="text" name="address" required />
-          <small>※ [○○시 ○○구 ○○동(or 도로명)] 형식으로 응답하시기 바랍니다.</small>
-        </label>
+        <label>생년월일</label>
+        <input type="date" name="birth" required />
 
-        <label>본인 연락처
-          <input type="tel" name="phone" required />
-          <small>※ 010-0000-0000 형식으로 응답하시기 바랍니다.</small>
-        </label>
+        <label>혼인 여부</label>
+        <select name="married" required>
+          <option value="미혼">미혼</option>
+          <option value="기혼">기혼</option>
+        </select>
 
-        <label>이메일 주소
-          <input type="email" name="email" required />
-          <small>※ 레지던스 관련 안내사항을 발송할 예정이오니, 본인이 사용하는 이메일 주소로 응답해주세요.<br/>
-          (예: kumc@gmail.com)<br/>
-          <strong>** 주의 : kumc.or.kr 메일 외의 다른 이메일 주소로 입력 **</strong></small>
-        </label>
+        <label>현재 거주지</label>
+        <div class="guide-text">※ [○○시 ○○구 ○○동(or 도로명)] 형식으로 응답하시기 바랍니다.</div>
+        <input type="text" name="address" required />
 
-        <label>신청 사유 <textarea name="reason" rows="5" required></textarea></label>
+        <label>본인 연락처</label>
+        <div class="guide-text">※ 010-0000-0000 형식으로 응답하시기 바랍니다.</div>
+        <input type="tel" name="phone" required />
+
+        <label>이메일 주소</label>
+        <div class="guide-text">
+          ※ 레지던스 관련 안내사항을 발송할 예정이오니, 본인이 사용하는 이메일 주소로 응답해주세요.<br>
+          (예: kumc@gmail.com)<br>
+          <strong>** 주의 : kumc.or.kr 메일 외의 다른 이메일 주소로 입력 **</strong>
+        </div>
+        <input type="email" name="email" required />
+
+        <label>신청 사유</label>
+        <textarea name="reason" rows="5" required></textarea>
 
         <button type="submit">신청하기</button>
         <p id="responseMsg"></p>
       </form>
     </div>
 
-    <aside class="info-panel">
+    <div class="video-section">
       <h3>🎬 레지던스 소개 영상</h3>
-      <iframe width="100%" height="215"
-              src="https://www.youtube.com/embed/RetC3a-KUsQ"
-              title="레지던스 소개 영상"
-              frameborder="0"
-              allowfullscreen></iframe>
-    </aside>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/RetC3a-KUsQ"
+                title="레지던스 소개 영상"
+                frameborder="0"
+                allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
