@@ -1,59 +1,61 @@
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f2f2f2;
+  background-color: #f8f8f8;
   margin: 0;
   padding: 0;
 }
 
-.container {
-  max-width: 480px;
-  margin: 40px auto;
-  padding: 24px;
-  background-color: #fff;
+.page-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 8px;
-}
-
-.description {
-  text-align: center;
   margin-bottom: 24px;
-  font-size: 14px;
-  color: #555;
 }
 
-form label {
-  display: block;
-  margin-bottom: 12px;
+label {
   font-weight: bold;
+  display: block;
+  margin-top: 16px;
 }
 
-form input,
-form select,
-form textarea {
+input, select, textarea {
   width: 100%;
   padding: 10px;
+  font-size: 14px;
   margin-top: 4px;
-  margin-bottom: 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 14px;
   box-sizing: border-box;
 }
 
+textarea {
+  resize: vertical;
+}
+
+.guide-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
 button {
+  width: 100%;
   background-color: #3478f6;
-  color: #fff;
+  color: white;
   border: none;
   padding: 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 100%;
   font-size: 16px;
+  border-radius: 6px;
+  margin-top: 24px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -61,7 +63,35 @@ button:hover {
 }
 
 #responseMsg {
-  margin-top: 16px;
   text-align: center;
+  margin-top: 16px;
+  font-weight: bold;
   color: green;
+}
+
+.video-section {
+  margin-top: 40px;
+}
+
+.video-section h3 {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 0;
 }
