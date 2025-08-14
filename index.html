@@ -442,6 +442,11 @@
                 this.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
 
+                // 모바일 환경(768px 이하)에서 탭 클릭 시 메뉴를 닫습니다.
+                if (window.innerWidth <= 768) {
+                    tabsList.classList.remove('open');
+                }
+
                 // 탭에 따라 유튜브 영상의 재생 상태를 제어합니다.
                 if (tabId === 'tab-overview') {
                     // '소개 영상' 탭을 클릭했을 때 영상 재생
