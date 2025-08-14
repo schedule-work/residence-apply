@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 웹페이지의 기본 정보를 설정합니다. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구로병원 간호부 레지던스 신청</title>
+    <!--
+        CSS로 웹페이지의 디자인을 만듭니다.
+        Apple 홈페이지처럼 깔끔한 느낌을 주기 위해
+        단순한 색상, 여백, 그림자 효과를 사용했습니다.
+    -->
+    <style>
+        /* 모든 요소에 적용될 기본 스타일입니다. */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        /* 전체 컨테이너를 중앙에 배치하고 카드처럼 보이게 합니다. */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            gap: 40px; /* 사이드바와 콘텐츠 사이의 간격 */
+        }
+
+        /* 왼쪽 사이드바 스타일입니다. */
+        .sidebar {
+            flex-shrink: 0; /* 내용이 많아도 줄어들지 않도록 설정 */
+            width: 250px;
+            padding-right: 30px;
+            border-right: 1px solid #eee;
+        }
+
+        /* 사이드바 제목 스타일입니다. */
+        .sidebar h2 {
+            margin-top: 0;
+            color: #007aff;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        /* 탭 메뉴 목록 스타일입니다. */
+        .tabs {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        /* 각 탭 항목 스타일입니다. */
+        .tabs li {
+            margin-bottom: 10px;
+        }
+
+        /* 탭 링크(버튼) 스타일입니다. */
+        .tabs a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* 탭에 마우스를 올렸을 때의 효과입니다. */
+        .tabs a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* 현재 활성화된 탭 스타일입니다. */
+        .tabs a.active {
+            background-color: #007aff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* 메인 콘텐츠 영역 스타일입니다. */
+        .content {
+            flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+        }
+
+        /* 탭별 콘텐츠 영역은 기본적으로 숨겨둡니다. */
+        .tab-content {
+            display: none;
+        }
+
+        /* active 클래스가 붙은 탭 콘텐츠만 보여줍니다. */
+        .tab-content.active {
+            display: block;
+        }
+
+        /* 페이지 제목 스타일입니다. */
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* 소제목 스타일입니다. */
+        h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* 이미지 컨테이너 스타일입니다. */
+        .image-container {
+            margin-bottom: 20px;
+            border-radius: 6px;
+            overflow: hidden; /* 이미지가 밖으로 삐져나가지 않게 함 */
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 구글폼 iframe 스타일입니다. */
+        iframe {
+            border-radius: 6px;
+        }
+      
+        /* 유튜브 영상 컨테이너를 위한 스타일입니다.
+           16:9 비율을 유지하여 반응형으로 만듭니다. */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 비율 (9/16 * 100%) */
+            margin-bottom: 20px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 왼쪽 탭 메뉴를 담는 사이드바 영역 -->
+        <div class="sidebar">
+            <h2>안내</h2>
+            <ul class="tabs">
+                <li><a href="#" class="tab-link active" data-tab="tab-apply">신청하기</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-overview">입주 모집안내</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-rules">소개 영상</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-gallery">Q & A</a></li>
+            </ul>
+        </div>
+        <!-- 탭 내용이 표시될 메인 콘텐츠 영역 -->
+        <div class="content">
+            <h1>레지던스 입실 신청</h1>
+
+            <!-- 신청하기 탭 내용 -->
+            <div id="tab-apply" class="tab-content active">
+                <h3>레지던스 신청 안내</h3>
+                <p>하단 신청 폼에 정확한 정보를 입력하여 주시기 바랍니다.</p>
+                <div class="image-container">
+                    <!-- 예시 이미지. 실제 이미지를 이곳에 넣어주세요. -->
+                    <img src="https://placehold.co/900x300/e9e9e9/333?text=신청+안내+이미지" alt="기숙사 신청 안내 이미지">
+                </div>
+                <!-- 사용자님이 제공해주신 구글폼 iframe 코드 -->
+                <div style="overflow: hidden; border-radius: 6px;">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4ANL7Lh5lG7FEhjMNt2PVW_CB4OdMesZ5KxQItX3igO9wPA/viewform?embedded=true" width="100%" height="2000" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
+                </div>
+            </div>
+
+            <!-- 입주 모집안내 탭 내용 -->
+            <div id="tab-overview" class="tab-content">
+                <h3>레지던스 소개 영상</h3>
+                <!-- 기존 이미지 대신 유튜브 영상 iframe을 추가했습니다. -->
+                <div class="video-container">
+                    <!-- 이곳에 유튜브 영상의 '퍼가기' 코드를 넣어주세요. -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Q&A 탭 내용 -->
+            <div id="tab-rules" class="tab-content">
+                <h3>Q&A</h3>
+                <div class="image-container">
+                    <!-- 예시 이미지. 실제 이미지를 이곳에 넣어주세요. -->
+                    <img src="https://placehold.co/900x400/e9e9e9/333?text=생활+규정+이미지" alt="기숙사 생활 규정 이미지">
+                </div>
+            </div>
+            
+            <!-- 갤러리 탭 내용 -->
+            <div id="tab-gallery" class="tab-content">
+                <h3>갤러리</h3>
+                <p>기숙사 내부 및 편의시설 사진입니다.</p>
+                <div class="image-container">
+                    <!-- 예시 이미지. 실제 이미지를 이곳에 넣어주세요. -->
+                    <img src="https://placehold.co/900x600/e9e9e9/333?text=기숙사+내부+사진1" alt="기숙사 내부 사진 1">
+                </div>
+                <div class="image-container">
+                    <!-- 예시 이미지. 실제 이미지를 이곳에 넣어주세요. -->
+                    <img src="https://placehold.co/900x600/e9e9e9/333?text=기숙사+내부+사진2" alt="기숙사 내부 사진 2">
+                </div>
+                <p>더 많은 사진은 추후 업데이트 예정입니다.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!--
+        JavaScript를 사용하여 탭을 클릭했을 때
+        해당 내용만 보이도록 기능을 구현합니다.
+    -->
+    <script>
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                // 링크 클릭 시 페이지가 새로고침되지 않도록 막습니다.
+                event.preventDefault();
+                
+                // 클릭한 탭의 data-tab 속성 값을 가져옵니다.
+                const tabId = this.getAttribute('data-tab');
+
+                // 모든 탭 링크와 콘텐츠에서 active 클래스를 제거합니다.
+                tabLinks.forEach(l => l.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+
+                // 클릭한 탭 링크와 해당 콘텐츠에 active 클래스를 추가하여 활성화합니다.
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
