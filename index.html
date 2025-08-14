@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>레지던스</title>
     <!-- 파비콘(웹 브라우저 탭 아이콘) 설정 -->
-    <link rel="icon" type="image/x-icon" href="/images/nurse.ico">
+    <link rel="icon" type="image/x-icon" href="https://schedule-work.github.io/image/nurse.ico">
     <!--
         CSS로 웹페이지의 디자인을 만듭니다.
         Apple 홈페이지처럼 깔끔한 느낌을 주기 위해
@@ -307,6 +307,10 @@
     <script>
         const tabLinks = document.querySelectorAll('.tab-link');
         const tabContents = document.querySelectorAll('.tab-content');
+        // 유튜브 영상 엘리먼트와 원본/자동재생 URL을 정의합니다.
+        const youtubeIframe = document.getElementById('youtube-video');
+        const youtubeOriginalSrc = 'https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq';
+        const youtubeAutoplaySrc = youtubeOriginalSrc + '&autoplay=1&mute=1';
 
         tabLinks.forEach(link => {
             link.addEventListener('click', function(event) {
@@ -323,6 +327,15 @@
                 // 클릭한 탭 링크와 해당 콘텐츠에 active 클래스를 추가하여 활성화합니다.
                 this.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
+
+                // 탭에 따라 유튜브 영상의 재생 상태를 제어합니다.
+                if (tabId === 'tab-overview') {
+                    // '소개 영상' 탭을 클릭했을 때 영상 재생
+                    youtubeIframe.src = youtubeAutoplaySrc;
+                } else {
+                    // 다른 탭을 클릭했을 때 영상 정지
+                    youtubeIframe.src = youtubeOriginalSrc;
+                }
             });
         });
     </script>
