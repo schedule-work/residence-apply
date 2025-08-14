@@ -4,7 +4,7 @@
     <!-- 웹페이지의 기본 정보를 설정합니다. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>구로병원 간호부 레지던스 신청</title>
+    <title>레지던스</title>
     <!--
         CSS로 웹페이지의 디자인을 만듭니다.
         Apple 홈페이지처럼 깔끔한 느낌을 주기 위해
@@ -191,18 +191,28 @@
             height: auto;
             display: block;
         }
+
+        /* 추가된 신청 폼 제목 스타일 */
+        .form-title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- 왼쪽 탭 메뉴를 담는 사이드바 영역 -->
         <div class="sidebar">
-            <div class="sidebar-icon">&#9776;</div>
+            <!-- 햄버거 아이콘 -->
+            <div class="sidebar-icon">☰</div>
             <ul class="tabs">
                 <li><a href="#" class="tab-link active" data-tab="tab-apply">신청하기</a></li>
-                <li><a href="#" class="tab-link" data-tab="tab-overview">입주 모집안내</a></li>
-                <li><a href="#" class="tab-link" data-tab="tab-rules">소개 영상</a></li>
-                <li><a href="#" class="tab-link" data-tab="tab-gallery">Q&A</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-overview">소개 영상</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-rules">Q&A</a></li>
+                <li><a href="#" class="tab-link" data-tab="tab-gallery">갤러리</a></li>
             </ul>
         </div>
         <!-- 탭 내용이 표시될 메인 콘텐츠 영역 -->
@@ -219,20 +229,22 @@
                         Your browser does not support the video tag.
                     </video>
                 </div>
+                <!-- 추가된 신청 폼 제목 -->
+                <p class="form-title">📝 레지던스 입실 신청 ▼</p>
                 <!-- 사용자님이 제공해주신 구글폼 iframe 코드 -->
                 <div style="overflow: hidden; border-radius: 6px;">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4ANL7Lh5lG7FEhjMNt2PVW_CB4OdMesZ5KxQItX3igO9wPA/viewform?embedded=true" width="100%" height="2000" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
                 </div>
             </div>
 
-            <!-- 입주 모집안내 탭 내용 -->
+            <!-- 소개 영상 탭 내용 -->
             <div id="tab-overview" class="tab-content">
                 <h3>레지던스 소개 영상</h3>
                 <!-- 기존 이미지 대신 유튜브 영상 iframe을 추가했습니다. -->
                 <div class="video-container">
                     <video controls autoplay muted>
                     <!-- 이곳에 유튜브 영상의 '퍼가기' 코드를 넣어주세요. -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 
@@ -241,7 +253,7 @@
                 <h3>Q&A</h3>
                 <div class="image-container">
                     <!-- 예시 이미지. 실제 이미지를 이곳에 넣어주세요. -->
-                    <img src="https://schedule-work.github.io/image/레지던스 Q&A_간호부.PNG" alt="레지던스 Q&A_간호부">
+                    <img src="https://schedule-work.github.io/image/residenceQNA.PNG" alt="레지던스 Q&A_간호부">
                 </div>
             </div>
             
