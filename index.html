@@ -22,7 +22,8 @@
 
         /* 전체 컨테이너를 중앙에 배치하고 카드처럼 보이게 합니다. */
         .container {
-            max-width: 1000px;
+            width: 90%; /* 화면 너비의 90%를 사용하도록 설정 */
+            max-width: 1200px; /* 최대 너비를 1200px로 제한 */
             margin: 40px auto;
             padding: 30px;
             background-color: #fff;
@@ -132,7 +133,7 @@
         }
         
         .image-container img {
-            max-width: 100%;
+            width: 100%; /* 부모 너비에 맞춰 무조건 크기를 확장함 */
             height: auto;
             display: block;
         }
@@ -242,9 +243,8 @@
                 <h3>레지던스 소개 영상</h3>
                 <!-- 기존 이미지 대신 유튜브 영상 iframe을 추가했습니다. -->
                 <div class="video-container">
-                    <video controls autoplay muted>
                     <!-- 이곳에 유튜브 영상의 '퍼가기' 코드를 넣어주세요. -->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/RetC3a-KUsQ?si=GV1zDKfHTv3EHjYq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
 
