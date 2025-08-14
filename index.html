@@ -237,11 +237,13 @@
             }
             .tabs {
                 display: flex; /* 탭을 가로로 정렬 */
-                flex-wrap: wrap;
-                justify-content: center;
+                overflow-x: auto; /* 넘칠 경우 가로 스크롤 허용 */
+                white-space: nowrap; /* 탭이 줄바꿈되지 않도록 설정 */
+                justify-content: flex-start; /* 탭을 왼쪽으로 정렬 */
             }
             .tabs li {
                 margin: 5px;
+                flex-shrink: 0; /* 탭 항목이 줄어들지 않도록 설정 */
             }
             .sidebar-icon {
                 text-align: center;
