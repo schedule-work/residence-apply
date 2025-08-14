@@ -41,16 +41,23 @@
             width: 250px;
             padding-right: 30px;
             border-right: 1px solid #eee;
+            position: sticky;
+            top: 30px; /* 상단에서 30px 떨어진 곳에 고정 */
+            height: calc(100vh - 60px); /* 화면 전체 높이에서 여백을 뺀 만큼 높이 설정 */
+            overflow-y: auto; /* 내용이 넘치면 스크롤바가 생기도록 설정 */
+            -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
         }
 
-        /* 햄버거 아이콘 스타일입니다. */
+        /* 햄버거 아이콘 스타일입니다. 데스크톱에서도 보이도록 수정되었습니다. */
         .sidebar-icon {
+            display: block;
             font-size: 32px; /* 아이콘 크기 */
             color: #007aff; /* 아이콘 색상 */
             text-align: left;
             margin-top: 0;
             margin-bottom: 20px;
             padding-left: 15px; /* 탭 링크와 동일한 간격을 위해 추가 */
+            cursor: pointer; /* 클릭 가능한 요소임을 나타냄 */
         }
 
         /* 탭 메뉴 목록 스타일입니다. */
@@ -58,6 +65,22 @@
             list-style: none;
             padding: 0;
             margin-top: 25px;
+            display: none; /* 기본적으로 숨김 */
+            flex-direction: column; /* 세로로 정렬 */
+            position: absolute; /* 햄버거 아이콘 아래에 오버레이로 표시 */
+            top: 60px; /* 햄버거 아이콘 아래에 위치 */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            padding: 10px 0;
+            z-index: 10;
+        }
+
+        /* 햄버거 아이콘 클릭 시 탭 메뉴를 보이도록 하는 클래스입니다. */
+        .tabs.open {
+            display: flex;
         }
 
         /* 각 탭 항목 스타일입니다. */
@@ -145,7 +168,7 @@
         iframe {
             border-radius: 6px;
         }
-      
+    
         /* 유튜브 영상 컨테이너를 위한 스타일입니다.
            16:9 비율을 유지하여 반응형으로 만듭니다. */
         .video-container {
@@ -235,13 +258,16 @@
                 border-bottom: 1px solid #eee; /* 아래쪽에 구분선 추가 */
                 padding-bottom: 20px;
                 position: relative; /* 자식 요소의 absolute 위치 기준 */
+                height: auto; /* 고정 속성 해제 */
+                overflow-y: visible; /* 스크롤바 숨김 */
             }
 
             /* 햄버거 아이콘은 모바일에서만 보이도록 설정 */
             .sidebar-icon {
-                display: block; /* 모바일에서 보이도록 */
+                display: block;
                 text-align: left;
                 padding-left: 5px;
+                cursor: pointer;
             }
 
             /* 탭 메뉴는 모바일에서 기본적으로 숨김 */
@@ -286,7 +312,7 @@
         <div class="sidebar">
             <!-- 햄버거 아이콘 -->
             <div class="sidebar-icon">☰</div>
-            <ul class="tabs">
+            <ul class="tabs open">
                 <li><a href="#" class="tab-link active" data-tab="tab-guide">입주 모집안내</a></li>
                 <li><a href="#" class="tab-link" data-tab="tab-apply-form">신청하기</a></li>
                 <li><a href="#" class="tab-link" data-tab="tab-overview">소개 영상</a></li>
@@ -297,8 +323,7 @@
         <!-- 탭 내용이 표시될 메인 콘텐츠 영역 -->
         <div class="content">
 
-            
-            <!-- 입주 모집 안내 탭 내용 (새로 추가됨) -->
+            <!-- 입주 모집 안내 탭 내용 -->
             <div id="tab-guide" class="tab-content active">
                 <h3>고려대학교 구로병원 레지던스 입주 모집 안내</h3>
                 <div class="video-player-container">
@@ -313,7 +338,8 @@
             <div id="tab-apply-form" class="tab-content">
                 <h3>고려대학교 구로병원 레지던스 신청 안내</h3>
                 <p>하단 신청 폼에 정확한 정보를 입력하여 주시기 바랍니다.</p>
-                <p><b>※ 레지던스 입실 현황에 따라, 매월 잔여 호실 및 입실 가능 여부가 변동될 수 있으며,<br>레지던스 신청은 <u>당월 입사하는 신규 간호사만 가능</u>하므로 <u>익월 입실 대기는 불가</u>합니다.</b></p>
+                <!-- <b> 태그와 <u> 태그를 사용하여 특정 부분을 강조했습니다. -->
+                <p>※ 레지던스 입실 현황에 따라, 매월 잔여 호실 및 입실 가능 여부가 변동될 수 있으며,<br>레지던스 신청은 <b>당월 입사하는 신규 간호사만</b> 가능하므로 <u>익월 입실 대기는 불가합니다.</u></p>
                 <!-- 사용자님이 제공해주신 구글폼 iframe 코드 -->
                 <div class="form-container">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4ANL7Lh5lG7FEhjMNt2PVW_CB4OdMesZ5KxQItX3igO9wPA/viewform?embedded=true" width="100%" height="2000" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
@@ -375,6 +401,7 @@
                 <div class="image-container">
                     <img src="https://schedule-work.github.io/image/공용주방2.jpg" alt="공용 주방2">
                 </div>
+                <p>더 많은 사진은 추후 업데이트 예정입니다.</p>
             </div>
         </div>
     </div>
@@ -414,11 +441,6 @@
                 // 클릭한 탭 링크와 해당 콘텐츠에 active 클래스를 추가하여 활성화합니다.
                 this.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
-
-                // 모바일에서 탭 클릭 시 메뉴를 닫도록 수정
-                if (window.innerWidth <= 768) {
-                    tabsList.classList.remove('open');
-                }
 
                 // 탭에 따라 유튜브 영상의 재생 상태를 제어합니다.
                 if (tabId === 'tab-overview') {
