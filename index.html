@@ -204,6 +204,21 @@
             margin-top: 20px;
             margin-bottom: 10px;
         }
+        
+        /* 구글 폼 컨테이너 스타일 */
+        .form-container {
+            margin-top: 20px;
+            overflow: hidden;
+            border-radius: 6px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+        }
+        .form-container iframe {
+            width: 100%;
+            height: 2000px;
+            border: 0;
+            border-radius: 6px;
+        }
+        
         /* 모바일 기기(최대 768px)에 대한 반응형 디자인 */
         @media (max-width: 768px) {
             .container {
@@ -248,24 +263,26 @@
         </div>
         <!-- 탭 내용이 표시될 메인 콘텐츠 영역 -->
         <div class="content">
-            <h1>구로병원 간호부 레지던스</h1>
 
-            <!-- 신청하기 탭 내용 -->
-            <div id="tab-apply" class="tab-content active">
-                <h3>레지던스 신청 안내</h3>
-                <p>하단 신청 폼에 정확한 정보를 입력하여 주시기 바랍니다.</p>
+            
+            <!-- 입주 모집 안내 탭 내용 (새로 추가됨) -->
+            <div id="tab-guide" class="tab-content active">
+                <h3>레지던스 입주 모집 안내</h3>
                 <div class="video-player-container">
                     <video controls autoplay muted>
                         <source src="https://schedule-work.github.io/image/간호사-기숙사-입주-모집-안내 (3).mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <!-- 추가된 신청 폼 제목 -->
-                <br>
-                <h3>📝 레지던스 입실 신청</h3>
-                <brD></brD>
+            </div>
+
+            <!-- 신청하기 탭 내용 -->
+            <div id="tab-apply-form" class="tab-content">
+                <h3>레지던스 신청 안내</h3>
+                <p>하단 신청 폼에 정확한 정보를 입력하여 주시기 바랍니다.</p>
+                <p>※ 레지던스 입실 현황에 따라, 매월 잔여 호실 및 입실 가능 여부가 변동될 수 있으며, 레지던스 신청은 당월 입사하는 신규 간호사만 가능하므로 익월 입실 대기는 불가합니다.</p>
                 <!-- 사용자님이 제공해주신 구글폼 iframe 코드 -->
-                <div style="overflow: hidden; border-radius: 6px;">
+                <div class="form-container">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf4ANL7Lh5lG7FEhjMNt2PVW_CB4OdMesZ5KxQItX3igO9wPA/viewform?embedded=true" width="100%" height="2000" frameborder="0" marginheight="0" marginwidth="0">로드 중…</iframe>
                 </div>
             </div>
